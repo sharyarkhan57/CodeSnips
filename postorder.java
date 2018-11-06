@@ -10,20 +10,20 @@ public static List<Integer> postorderTraversal(TreeNode node){
 	Stack<TreeNode> stack = new Stack<TreeNode>();
 
 	TreeNode curr = node;
-	stack.add(curr);
+	stack.add(node);
 
-	while( !stack.isEmpty() || curr!=null ){
+	while( !stack.isEmpty() ){
 
-		if(curr.right != null){
-			stack.add(curr);
-			curr = curr.right;
-		}
+			curr = stack.pop();
+			list.add(0,curr.val);
 
-		if(curr.left != null){
-			stack.add(curr);
-			curr = curr.left;
-		}
-
+			if(curr.left != null){
+				stack.push(curr.left);
+			}
+			if(curr.right!=null){
+				stack.push(curr.right);
+			}
+			stack.getSize
 	}
 
 	return solution;
@@ -58,5 +58,55 @@ public static List<Integer> postorderTraversal(TreeNode node){
 
 	return solution;
 }
+
+
+
+
+
+public static List<Integer> postorderTraversal(TreeNode node){
+
+	List<Integer> solution = new LinkedList<Integer>();
+	Stack<TreeNode> stack = new Stack<TreeNode>();
+	
+	TreeNode curr = node;
+	stack.add(node);
+
+
+	while(!stack.isEmpty()){
+
+		curr = stack.pop();
+		list.add(0,curr.val);
+
+		if(curr.left != null){
+			stack.push(curr.left);
+
+		}
+
+		if(curr.right != null){
+			stack.push(curr.right);
+		}
+
+
+	}
+
+	return solution;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
