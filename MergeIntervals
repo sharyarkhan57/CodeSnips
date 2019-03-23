@@ -1,0 +1,38 @@
+   
+
+
+   
+
+
+   public List<Interval> merge(List<Interval> intervals) {
+        
+        // Initial Edge Cases
+        if(intervals.size() == null) return null;
+        if(intervals.size() == 1) return intervals;
+        List<Interval> solution = new ArrayList<>();
+
+        // Anonymous Inner Class
+        intervals.sort((x,y) -> x.start - y.start );
+
+
+        for(Interval i : intervals){
+        	if(solution == null) solution.add(i);
+        	else{
+        		Interval temp = solution.get(list.size() - 1);
+        		// If the intervals can be merged, merge
+        		if(temp.end > i.start){
+        			temp.end = i.end;
+        			solution.remove(list.size()-1);
+        			solution.add(temp);
+        		}else{
+        			solution.add(i);
+        		}
+        	}
+        }
+
+        return solution;
+   }
+
+
+
+               {'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'} ;
